@@ -120,7 +120,7 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 999;
   overflow: scroll;
   transition: 0.3s;
   /* display: none; */
@@ -190,12 +190,16 @@ main {
 
 .overlay .overlay-close {
   position: absolute;
+
+  padding: 5px;
+  border-radius: 50%;
   right: 0;
   margin-right: 50px;
   opacity: 0;
   text-decoration: none;
   font-size: 2rem;
-  color: var(--warna2);
+  z-index: 9999;
+  color: red;
 }
 
 /* CSS Footer */

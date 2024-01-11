@@ -1,0 +1,249 @@
+:root {
+  --warna1: white;
+  --warna2: #ddd;
+  --warna3: black;
+  --warnajudul: #a5ffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--warna1);
+  color: var(--warna3);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* CSS Navbar Menu */
+
+header {
+  border-bottom: 2px solid var(--warna2);
+}
+
+header .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+header .navbar .navbar-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: var(--warna3);
+}
+
+/* CSS Main Tittle */
+
+main {
+  padding: 0 50px;
+  position: relative;
+}
+.main-tittle {
+  display: flex;
+}
+
+.main-tittle .tittle {
+  margin: 50px auto;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 20px;
+  border: 2px solid var(--warnajudul);
+}
+
+/* CSS Card Gallery */
+
+.cards-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cards-gallery .card {
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.cards-gallery .card .card-image {
+  width: 100%;
+
+  transition: all ease-in 0.2s;
+}
+
+.cards-gallery .card .card-image:hover {
+  transform: scale(1.1);
+}
+
+.cards-gallery .card .card-body {
+  position: absolute;
+  background-color: var(--warna2);
+  opacity: 0.8;
+  bottom: 0;
+  border-top-left-radius: 50px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card .card-body .card-tittle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: var(--warnajudul);
+  text-shadow: 2px 2px 4px var(--warna3);
+}
+
+.card .card-body .card-info {
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+
+/* CSS Overlay */
+.overlay {
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: scroll;
+  transition: 0.3s;
+  /* display: none; */
+}
+
+.overlay:target {
+  height: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  right: 0;
+}
+
+.overlay:target .overlay-close {
+  animation: animasiClose 0.5s 0.5s forwards;
+}
+
+.overlay:target .overlay-body {
+  animation: animasiBody 1s ease forwards;
+}
+
+.overlay .overlay-body {
+  background-color: var(--warna1);
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 80vw;
+  height: auto;
+}
+
+.overlay .overlay-body .overlay-image {
+  width: 400%;
+}
+
+.overlay .overlay-body .overlay-desc {
+  background-color: var(--warnajudul);
+  width: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.overlay-body .overlay-desc .overlay-tittle {
+  font-size: 1.2rem;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+.overlay-body .overlay-desc .overlay-info {
+  padding-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.overlay-body .overlay-desc .overlay-sosmed {
+  padding-top: 40px;
+}
+
+.overlay-desc .overlay-sosmed .sosmed-link {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.overlay-desc .overlay-sosmed p {
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+.overlay .overlay-close {
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  opacity: 0;
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--warna2);
+}
+
+/* CSS Footer */
+footer {
+  background-color: var(--warnajudul);
+  border-top: 2px solid var(--warna2);
+  margin-top: 50px;
+}
+
+footer .footer-text {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* CSS Animasi */
+
+@keyframes animasiClose {
+  0% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 10px;
+  }
+}
+
+@keyframes animasiBody {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* CSS Responsive */
+
+@media screen and (max-width: 800px) {
+  .overlay .overlay-body {
+    flex-direction: column;
+  }
+
+  .overlay .overlay-body .overlay-image {
+    width: 100%;
+  }
+}
